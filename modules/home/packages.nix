@@ -4,6 +4,7 @@
 {
   home.packages = with pkgs; [
     # Add personal CLI tools here.
+    tree
   ];
 
   home.file.".docker/cli-plugins/docker-compose".source = "${pkgs.docker-compose}/bin/docker-compose";

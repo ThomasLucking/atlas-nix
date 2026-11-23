@@ -1,11 +1,10 @@
 # atlas-nix
 
-nix-darwin + home-manager config for both Macs.
+nix-darwin + home-manager config for the Mac mini.
 
 | Host | Config name | Gets |
 |---|---|---|
-| Mac mini | `Thomass-Mac-mini` | shared packages + dotfiles + Grafana, Ollama, Colima services |
-| MacBook Pro | `Thomass-MacBook-Pro` | shared packages + dotfiles |
+| Mac mini | `Thomass-Mac-mini` | shared packages + dotfiles + Ollama, Colima services |
 
 ## Everyday use
 
@@ -27,11 +26,10 @@ Flakes only see files tracked by git, so `git add` new files before switching.
 
 ## Service logs
 
-`~/Library/Logs/{grafana,ollama,colima}.{out,err}.log`
+`~/Library/Logs/{ollama,colima}.{out,err}.log`
 Status: `launchctl list | grep org.nixos`
 
 ## Where data lives
 
-- Grafana: `~/.local/share/grafana` (copied from `/opt/homebrew/var/lib/grafana`)
 - Ollama models: `~/.ollama`
 - Colima VM + profile: `~/.colima`

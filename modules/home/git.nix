@@ -4,9 +4,8 @@
 {
   programs.git = {
     enable = true;
-    # Fill these in to give commits an author:
-    # settings.user.name = "Your Name";
-    # settings.user.email = "you@example.com";
+    settings.user.name = "Thomas Lucking";
+    settings.user.email = "ciec24067@gmail.com";
   };
 
   programs.gh = {

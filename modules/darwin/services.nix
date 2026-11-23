@@ -1,11 +1,9 @@
 # Background services for the Mac mini, as launchd user agents.
-# Replaces `brew services` for grafana, and adds colima and ollama so they
-# come back after a reboot (they didn't before).
+# Runs colima and ollama so they come back after a reboot.
 { pkgs, user, ... }:
 let
   home = "/Users/${user}";
   logs = "${home}/Library/Logs";
-  grafanaData = "${home}/.local/share/grafana";
 
   # launchd starts agents with a bare PATH; give them the Nix profiles.
   env = {
@@ -15,26 +13,9 @@ let
 in
 {
   # Also on PATH so you can run `colima status`, `ollama run ...`, etc.
-  environment.systemPackages = with pkgs; [ colima ollama grafana ];
+  environment.systemPackages = with pkgs; [ colima ollama ];
 
   launchd.user.agents = {
-    grafana.serviceConfig = {
-      ProgramArguments = [
-        "${pkgs.grafana}/bin/grafana"
-        "server"
-        "--homepath"
-        "${pkgs.grafana}/share/grafana"
-        "cfg:default.paths.data=${grafanaData}"
-        "cfg:default.paths.plugins=${grafanaData}/plugins"
-        "cfg:default.paths.logs=${logs}/grafana"
-      ];
-      EnvironmentVariables = env;
-      RunAtLoad = true;
-      KeepAlive = true;
-      StandardOutPath = "${logs}/grafana.out.log";
-      StandardErrorPath = "${logs}/grafana.err.log";
-    };
-
     ollama.serviceConfig = {
       ProgramArguments = [ "${pkgs.ollama}/bin/ollama" "serve" ];
       # Models stay in ~/.ollama.

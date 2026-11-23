@@ -1,5 +1,5 @@
 {
-  description = "atlas-nix: nix-darwin + home-manager config for Thomas's Macs";
+  description = "atlas-nix: nix-darwin + home-manager config for Thomas's Mac mini";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -48,7 +48,6 @@
       # so `darwin-rebuild switch --flake ~/atlas-nix` picks the right one.
       darwinConfigurations = {
         "Thomass-Mac-mini" = mkHost ./hosts/mac-mini;
-        "Thomass-MacBook-Pro" = mkHost ./hosts/macbook-pro;
       };
     };
 }
