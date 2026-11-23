@@ -1,6 +1,7 @@
 # CLI tools on every Mac. Replaces these Homebrew formulae:
 # ansible, docker, docker-buildx, docker-compose, node@24, wget.
-# (fish, gh and helix are set up in modules/home; colima, ollama and grafana in services.nix.)
+# (tree is in modules/home/packages.nix. mlx/mlx-c were only brew deps of ollama.)
+# (fish, gh and helix are set up in modules/home; colima and ollama in services.nix.)
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [

@@ -1,4 +1,4 @@
-# Mac mini: the always-on machine. Runs Grafana, Ollama and Colima as services.
+# Mac mini: the always-on machine. Runs Ollama and Colima as services.
 { ... }:
 {
   imports = [
