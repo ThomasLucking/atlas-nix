@@ -1,0 +1,5 @@
+{ ... }:
+
+{
+  service.netbird.enable = true;
+}

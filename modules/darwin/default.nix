@@ -5,6 +5,7 @@
     ./packages.nix
     ./system.nix
     ./homebrew.nix
+    ./netbird.nix
   ];
 
   nixpkgs.hostPlatform = "aarch64-darwin";
