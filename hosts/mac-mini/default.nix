@@ -3,6 +3,7 @@
 {
   imports = [
     ../../modules/darwin/services.nix
+    ../../modules/darwin/server.nix
   ];
 
   # Hostname is deliberately not managed here: changing it would also rename
